@@ -1,18 +1,25 @@
 {
   "manifest_version": 3,
   "name": "GitHub Hide Sidebar",
+  "version": "1.0",
   "description": "Chrome extension to hide the sidebar on the right of GitHub issues and PRs",
+
   "homepage_url":  "https://github.com/jcouv/github-hide-sidebar",
   "author": "Julien Couvreur",
 
-  "version": "1.0",
   "permissions": ["contextMenus"],
   "background": {
     "service_worker": "toggle-sidebar.js",
-    "matches": ["https://github.com/*"]
+    "matches": ["https://github.com/*/pull/*", "https://github.com/*/issues/*"]
    },
    "content_scripts": [{
-    "matches": ["https://github.com/*"],
+    "matches": ["https://github.com/*/pull/*", "https://github.com/*/issues/*"],
     "js": ["content.js"]
-  }]
+  }],
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
 }
